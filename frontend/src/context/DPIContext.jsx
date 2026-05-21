@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer, useEffect, useRef, useCal
 import { io } from 'socket.io-client';
 import axios from 'axios';
 
-const BACKEND = 'http://localhost:3001';
+const BACKEND = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 const DPIContext = createContext(null);
 
 const initialState = {

@@ -10,7 +10,7 @@ const BlockingRules = require('./src/blockingRules');
 const DPIEngine = require('./src/dpiEngine');
 
 const PORT = process.env.PORT || 3001;
-const FRONTEND_ORIGIN = 'http://localhost:5173';
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:5173';
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
 
 // ── App setup ────────────────────────────────────────────────────────────────
