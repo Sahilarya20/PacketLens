@@ -19,6 +19,8 @@ const allowedOrigins = (process.env.FRONTEND_ORIGIN || 'http://localhost:5173')
 const originHandler = (origin, callback) => {
   // Allow requests with no origin (server-to-server, curl, etc.)
   if (!origin) return callback(null, true);
+  // Allow any Vercel preview deployment subdomain
+  if (/^https:\/\/[\w-]+\.vercel\.app$/.test(origin)) return callback(null, true);
   if (allowedOrigins.includes(origin)) return callback(null, true);
   callback(new Error(`CORS: origin ${origin} not allowed`));
 };
