@@ -23,6 +23,8 @@ const io = new Server(server, {
 app.use(cors({ origin: FRONTEND_ORIGIN }));
 app.use(express.json());
 
+app.get('/', (req, res) => res.json({ status: 'ok', service: 'PacketLens DPI Backend' }));
+
 if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
