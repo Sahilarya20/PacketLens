@@ -4,7 +4,7 @@
 
 A real-time network traffic analysis tool that parses PCAP files, extracts TLS SNI, classifies applications, tracks flows, and enforces blocking rules — all through a live web dashboard.
 
-🌐 **Live Demo:** [packet-lens.vercel.app](https://packet-lens-k2otv.vercel.app)
+🌐 **Live Demo:** [packet-lens.vercel.app](https://packet-lens-4lco.vercel.app/)
 
 ---
 
