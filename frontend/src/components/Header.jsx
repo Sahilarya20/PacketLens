@@ -32,10 +32,10 @@ export default function Header() {
         </div>
         <div>
           <h1 className="text-sm font-bold tracking-widest text-slate-800" style={{ letterSpacing: '0.15em' }}>
-            DPI ENGINE
+            PacketLens
           </h1>
           <p className="text-xs font-mono" style={{ color: '#2563eb', letterSpacing: '0.1em' }}>
-            v2.0 · Deep Packet Inspection
+            v1.0 · Deep Packet Inspection
           </p>
         </div>
       </div>

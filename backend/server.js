@@ -204,7 +204,7 @@ app.use((err, req, res, next) => {
 server.listen(PORT, () => {
   console.log(`
 ╔══════════════════════════════════════════════════════════╗
-║           DPI ENGINE v2.0 - Backend Server               ║
+║           PacketLens v1.0 - Backend Server               ║
 ╠══════════════════════════════════════════════════════════╣
 ║  HTTP  → http://localhost:${PORT}                           ║
 ║  WS    → ws://localhost:${PORT}  (Socket.IO)               ║
