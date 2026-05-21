@@ -10,17 +10,27 @@ const BlockingRules = require('./src/blockingRules');
 const DPIEngine = require('./src/dpiEngine');
 
 const PORT = process.env.PORT || 3001;
-const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:5173';
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
+
+const allowedOrigins = (process.env.FRONTEND_ORIGIN || 'http://localhost:5173')
+  .split(',')
+  .map(s => s.trim());
+
+const originHandler = (origin, callback) => {
+  // Allow requests with no origin (server-to-server, curl, etc.)
+  if (!origin) return callback(null, true);
+  if (allowedOrigins.includes(origin)) return callback(null, true);
+  callback(new Error(`CORS: origin ${origin} not allowed`));
+};
 
 // ── App setup ────────────────────────────────────────────────────────────────
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: FRONTEND_ORIGIN, methods: ['GET', 'POST', 'DELETE'] },
+  cors: { origin: originHandler, methods: ['GET', 'POST', 'DELETE'] },
 });
 
-app.use(cors({ origin: FRONTEND_ORIGIN }));
+app.use(cors({ origin: originHandler }));
 app.use(express.json());
 
 app.get('/', (req, res) => res.json({ status: 'ok', service: 'PacketLens DPI Backend' }));
